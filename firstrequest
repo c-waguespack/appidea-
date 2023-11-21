@@ -1,0 +1,30 @@
+import tkinter as tk
+from tkinter import messagebox
+
+# Function to calculate the plowing cost based on square footage
+def calculate_quote():
+    try:
+        square_footage = float(entry.get())
+        # You can replace this formula with your pricing logic
+        plowing_cost = square_footage * 2  # Replace 2 with your rate per square foot
+        messagebox.showinfo("Quote", f"The estimated cost is ${plowing_cost:.2f}")
+    except ValueError:
+        messagebox.showerror("Error", "Please enter a valid square footage.")
+
+# Create the main application window
+app = tk.Tk()
+app.title("Driveway Plowing Quote")
+
+# Create and configure the square footage input label and entry field
+label = tk.Label(app, text="Enter Square Footage:")
+label.pack()
+
+entry = tk.Entry(app)
+entry.pack()
+
+# Create the calculate button
+calculate_button = tk.Button(app, text="Calculate Quote", command=calculate_quote)
+calculate_button.pack()
+
+# Start the application main loop
+app.mainloop()
